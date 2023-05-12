@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading;
+﻿// Create a builder by specifying the application and main window.
 using GlobalUsingsReproduction;
 
-Thread.CurrentThread.SetApartmentState(ApartmentState.Unknown);
-Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+var builder = WpfApplication<App, MainWindow>.CreateBuilder(args);
 
-var app = new App();
-app.Run(new MainWindow());
+// Build and run the application.
+var app = builder.Build();
+await app.RunAsync();
