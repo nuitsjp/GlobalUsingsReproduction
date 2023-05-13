@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <!-- 
+	If RuntimeIdentifier is specified, it succeeds.
+    Once it succeeds, it succeeds even if you delete it.
+    If bin/obj is deleted, the error occurs again.
+	-->
+    <!--<RuntimeIdentifier>win-x86</RuntimeIdentifier>-->
+
+    <!-- RuntimeIdentifiers would not succeed. -->
+    <RuntimeIdentifiers>win-x86</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClassLibraryToAddGlobalUsings" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
