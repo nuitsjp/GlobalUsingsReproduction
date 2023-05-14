@@ -35,5 +35,19 @@ win-x86とwin-x64の双方を発行したい場合、2は利用できず1また�
 
 MSBuildでは発行時にターゲットランタイムが指定されていた場合、RuntimeIdentifierもしくはRuntimeIdentifiersが.csprojで指定されていることが必須となっています。しかしVisual Studioでは存在チェックがなく、実行自体はできます。ここにも問題があるように感じます。
 
+## 再現方法
+
+本リポジトリーのソリューションを開いてください。
+
+1. MainWindowXamlExists
+2. MainWindowXamlNotExists
+
+1は発行でエラーになりますが、2はエラーになりません。違いはプロジェクト名以外は、MainWindow.xamlの有無のみで、MainWindow.xamlがあるとエラーになります。
+
+![](resources/diff2.png)
+
 ## 希望する対策
 
+- RuntimeIdentifiersで指定されたターゲットランタイムでの発行が動作すること。
+
+現在、MainWindow.xamlがなければRuntimeIdentifierがなくても発行できますが、MSBuildではRuntimeIdentifierもしくはRuntimeIdentifiersがないと発行できません。同一の仕様にあわせたらいかがでしょうか？
